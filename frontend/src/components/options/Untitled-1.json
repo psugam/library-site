@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "68d12485e6380a9ef0f7c952",
+    "username": "booklover1234",
+    "email": "book1234@email.com",
+    "password": "$2b$10$JH4pnlO9JwQn2EqhZ2wz8OvNQh6DqA1yUlPz0tkYzTjvZnNfTi3fS",
+    "createdAt": "2025-09-22T10:27:17.033Z",
+    "updatedAt": "2025-09-22T11:55:50.129Z",
+    "__v": 0
+  },
+  {
+    "_id": "68d12499e6380a9ef0f7c954",
+    "username": "alice_wonder",
+    "email": "alice@example.com",
+    "password": "$2b$10$Wq5Bpq0D3wYq1VjZJzL76OVFiwTyo6cHwJcOwGdWRo3qHvCqYeFzK",
+    "createdAt": "2025-09-22T10:27:37.658Z",
+    "updatedAt": "2025-09-22T10:27:37.658Z",
+    "__v": 0
+  },
+  {
+    "_id": "68d12fa3cf0171ccb98eccc9",
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password": "$2b$10$Kh3OPn6xzjMIrNqWiyzB3u4UOWsZlL9a1wCm0kTuZCV6UmA4QmNge",
+    "createdAt": "2025-09-22T11:14:43.544Z",
+    "updatedAt": "2025-09-22T11:14:43.544Z",
+    "__v": 0
+  },
+  {
+    "_id": "68d26f83c97596fb41c537d2",
+    "username": "Jackie Chan",
+    "email": "jackie@chan.com",
+    "password": "jackie",
+    "createdAt": "2025-09-23T09:59:31.821Z",
+    "updatedAt": "2025-09-23T09:59:31.821Z",
+    "__v": 0
+  }
+]
+  <h2 className="text-2xl font-bold mb-2">{selectedBook.name}</h2>
+        <p className="text-lg">By {selectedBook.authors.join(", ")}</p>
+        <p className="text-lg">Edited by {selectedBook.editors.join(", ")}</p>
+        <p className="text-gray-200">Publisher: {selectedBook.publisher}</p>
+        <p className="text-gray-200">
+          Language: {selectedBook.languages.join(", ")}
+        </p>
+        <p className="text-gray-200">
+          Published: {selectedBook.published_date}
+        </p>
+        <p className="text-gray-200">Pages: {selectedBook.pages}</p>
+        <p className="text-gray-200">Price: {selectedBook.price}</p>
+        <p className="text-gray-200">
+          Genres: {selectedBook.genres.join(", ")}
+        </p>
+        <p className="text-gray-200">
+          Read Status: {selectedBook.read_status}
+        </p>
+        <p className="text-gray-200">
+          Read Dates: {selectedBook.read_dates?.length ? selectedBook.read_dates.join(", ") : "-"}
+        </p>
+        <p className="text-gray-200">
+          Lent To: {selectedBook.lent_to ? selectedBook.lent_to : "-"}
+        </p>
+        <p className="mt-3">{selectedBook.summary}</p>
+        <p className="text-gray-200">Rating: {selectedBook.rating || "-"}</p>
+        <p className="text-gray-200"> My Note: {selectedBook.my_note}</p>
