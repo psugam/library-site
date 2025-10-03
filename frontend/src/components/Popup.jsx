@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate, Link } from "react-router-dom";
 
 const Popup = ({ selectedBook, closePopup, onFilterRedirect }) => {
   return (
@@ -103,6 +104,9 @@ const Popup = ({ selectedBook, closePopup, onFilterRedirect }) => {
   {selectedBook.lent_to ? selectedBook.lent_to : "-"}
   </span>
 </p>
+  <p>
+    <Link to={`/editbook/${selectedBook._id}`}>Edit</Link>
+  </p>
 
       </div>
     </div>

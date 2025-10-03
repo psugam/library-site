@@ -20,6 +20,7 @@ import { AuthProvider } from './pages/authentication/AuthContext';
 import ProtectedRoute from './pages/authentication/ProtectedRoute';
 import Redirecting from './pages/authentication/Redirecting';
 import AddBook from './pages/general/AddBook';
+import EditBook from './pages/general/EditBook';
 function App() {
   useEffect(()=>{
     const token=localStorage.getItem('token');
@@ -47,7 +48,11 @@ function App() {
         } />
 
        <Route path="/about" element={ <ProtectedRoute><About/></ProtectedRoute>}/>
+       
        <Route path='/addbook' element={<ProtectedRoute><AddBook/></ProtectedRoute>}/>
+       
+       <Route path="/editbook/:bookId" element={ <ProtectedRoute><EditBook/></ProtectedRoute>}/>
+
        <Route path='/stats' element={<ProtectedRoute><Stats/></ProtectedRoute>}/>
        <Route path='/profile' element ={<ProtectedRoute><Profile/></ProtectedRoute>}/>
         <Route path='/redirecting' element ={<ProtectedRoute><Redirecting/></ProtectedRoute>}/>

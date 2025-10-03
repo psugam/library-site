@@ -12,6 +12,7 @@ const deleteOne=require('./routes/books/deleteOne')
 const editOne=require('./routes/books/editOne')
 const genericSearch=require('./routes/books/genericSearch')
 const getByID=require('./routes/books/getById')
+const getOneBook=require('./routes/books/getOneBook')
 
 
 const listAllUsers=require('./routes/users/listAllUsers')
@@ -49,6 +50,7 @@ async function  startServer(){
     app.use('/api/books', editOne)
     app.use('/api/books', genericSearch);
     app.use('/api/books', getByID)
+    app.use('/api/books', getOneBook);
 
 
     //users

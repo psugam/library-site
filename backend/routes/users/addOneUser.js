@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const User =require('../../database/users.model');
+const bcrypt=require('bcryptjs');
 
 // Handling login request
 router.post("/addoneuser", async (req,res,next)=>{
@@ -17,8 +18,12 @@ router.post("/addoneuser", async (req,res,next)=>{
     try{
         const {username, email, password}=req.body;
         const existingUser=await User.find({username:username});
+        const salt =await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+
         if(existingUser.length==0){
-            const newUser = new User({ username, email, password });
+            const newUser = new User({ username, email, password:hashedPassword });
         await newUser.save(); // Save the new user to the database
         res.status(201).json(newUser); // Send back the created user
         // res.status(200).json({messgae:"Correct"});

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const bcrypt=require('bcryptjs');
 
 const dotenv=require('dotenv');
 dotenv.config();
@@ -13,11 +14,17 @@ router.post('/loginuser', async (req, res) => {
   // console.log("Login request:", username, password);
 
   try {
-    const existingUser = await User.findOne({ username, password });
+    
+    
+    const existingUser = await User.findOne({ username});
     // console.log("Found user:", existingUser);
 
     if (!existingUser) {
-      return res.status(400).json({ msg: "Invalid username or password" });
+      return res.status(400).json({ msg: "No such user !" });
+    }
+    const isMatch = await bcrypt.compare(password, existingUser.password);
+    if(!isMatch){
+      res.status(400).json({msg:"Invalid password. Try again"});
     }
 
     if (!process.env.JWT_SECRET) {
